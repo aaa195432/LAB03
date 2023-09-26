@@ -1,8 +1,23 @@
 public class Sorter {
     public static void main(String[] args) {
         int arr[] = { 64, 25, 12, 22, 11 };
+        insertionSort(arr);
+        printArray(arr);
         selectionSort(arr);
         printArray(arr);
+    }
+
+    public static void insertionSort(int array[]) {
+        int n = array.length;
+        for (int j = 1; j < n; j++) {
+            int key = array[j];
+            int i = j - 1;
+            while ((i > -1) && (array[i] > key)) {
+                array[i + 1] = array[i];
+                i--;
+            }
+            array[i + 1] = key;
+        }
     }
 
     public static void selectionSort(int arr[]) {
@@ -28,5 +43,6 @@ public class Sorter {
 
     public static void sort(int array[]) {
         selectionSort(array);
+        insertionSort(array);
     }
 }
